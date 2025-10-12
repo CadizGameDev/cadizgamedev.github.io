@@ -1,0 +1,46 @@
+{
+  "HomePage": {
+    "Greetings": "Hola!",
+    "Description": "Soy Gabriel Bustillo del Cuvillo, un experto en TI, pero oficialmente soy desarrollador de software (y ex técnico de TI)"
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
+  },
+  "Metadata": {
+    "Title": "Gabriel Bustillo del Cuvillo - Desarrollador multidisciplinar"
+  },
+  "CommonWords": {
+    "years": "Años",
+    "Work Experience": "Experiencia Laboral",
+    "WorkExperience": "Experiencia Laboral",
+    "Coding Experience": "Experiencia Programando",
+    "Education": "Educacion",
+    "Certificates": "Certificados",
+    "Talks": "Charlas",
+    "CurrentView": "Su vista actual es la siguiente:",
+    "TechExperience": "Algunas experiencias tecnológicas",
+    "OnGoing": "En curso",
+    "ChangeProfile": "Cambiar perfil técnico",
+    "Companies": "Compañías",
+    "Download": "Descargar Currículum",
+    "JobPositions": "Puestos de trabajo",
+    "of": "de"
+  },
+  "NavBar": {
+    "Projects": "Proyectos",
+    "Resume": "Curriculum",
+    "GuestBook": "Libro de Visitas",
+    "AboutMe": "Sobre Mi",
+    "Contact": "Contacto",
+    "Notes": "Notas",
+    "Blog": "Blog",
+    "Others": "Otros"
+  },
+  "Contact": {
+    "Heading": "¡Hola!, Si quieres contactarnos o unirte al grupo, tienes estas opciones:"
+  },
+  "AboutMe": {
+    "Paragraphs": {
+    }
+  }
+}
