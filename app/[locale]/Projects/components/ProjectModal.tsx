@@ -1,4 +1,4 @@
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData, ProjectDataCasted} from '@/src/data/ProjectDataTypes';
 import {Carousel, Modal, ModalBody, ModalHeader} from 'flowbite-react';
 import Image from 'next/image';
 import metaImages from '@/src/metaimages.json';
@@ -14,7 +14,7 @@ const prefix = '/img/stores/';
 export default function ProjectModal(props: {
   openModalStatus: boolean;
   closeCallback: () => void;
-  projectData: ProjectData | undefined;
+  projectData: ProjectDataCasted | undefined;
 }) {
   const s = (metaImages as imageData).storeIcons;
   return (

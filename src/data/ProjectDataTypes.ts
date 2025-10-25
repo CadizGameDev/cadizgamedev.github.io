@@ -2,13 +2,13 @@ export const enum Cat {
   'Commercial',
   'GameJam',
   'Other',
-  'GameJamEvent',
+  'GameJamEvents',
 }
 export const enum GameType {
   'Commercial',
   'GameJam',
   'Other',
-  'GameJamEvent',
+  'GameJamEvents',
 }
 export interface ProjectData {
   id: string;
@@ -23,3 +23,8 @@ export interface ProjectData {
   stores: Array<{name: string; url: string}>;
   screenshots: Array<string>;
 }
+
+export interface ProjectDataCasted extends ProjectData {
+  dateCasted: Date;
+}
+

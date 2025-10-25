@@ -3,17 +3,25 @@
 import {ReactNode, useEffect, useState} from 'react';
 import {ProjectCards} from './ProjectCards';
 import {HiFilter} from 'react-icons/hi';
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {Cat, ProjectDataCasted} from '@/src/data/ProjectDataTypes';
 import ProjectModal from './ProjectModal';
 import {Types} from './ProjectFilter';
 import {projectType} from '../projectType';
 import {_ButtonGroup} from './ProjectToggle';
 import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
 import {TrademarkNotice} from './TrademarkNotice';
+import {projectTypeEnum} from '@/src/projectTypeEnum';
 
 let visibleHiddenProject: boolean = false;
 const filterStack: Set<string> = new Set<string>();
-const output: Array<ProjectData> = [];
+
+const projectCatTypes =
+  [
+    { "enum": projectTypeEnum.Commercial, "idName": "Commercial", "DisplayName": "Commercial" },
+    { "enum": projectTypeEnum.GameJam, "idName": "GameJam", "DisplayName": "GameJam" },
+    { "enum": projectTypeEnum.Others, "idName": "Others", "DisplayName": "Others" },
+    { "enum": projectTypeEnum.GameJamEvents, "idName": "GameJamEvents", "DisplayName": "GameJamEvents" }
+  ]
 
 let projectTypeFilter: {
   [id: string]: projectType;
@@ -40,15 +48,14 @@ let locale = '';
 
 export default function ProjectBrowser(props: {
   locale: string;
-  projectsData: Array<ProjectData>;
+  projectsData: Array<ProjectDataCasted>;
 }): ReactNode {
-  const [projectsData, setProjectsData] = useState<Array<ProjectData>>([]);
-  const [projectData, setProjectData] = useState<ProjectData>();
+  const [projectsData, setProjectsData] = useState<Array<ProjectDataCasted>>([]);
+  const [projectData, setProjectData] = useState<ProjectDataCasted>();
 
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
   useEffect(() => {
-    if (output.length === 0 || locale !== props.locale) {
       locale = props.locale;
       setProjectsData(
         props.projectsData
@@ -57,41 +64,40 @@ export default function ProjectBrowser(props: {
             e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
           ),
       );
-    } else {
-      if (projectsData.length === 0) {
-        setProjectsData(props.projectsData);
-      }
-    }
-  }, [projectsData.length, props.locale, props.projectsData]);
+  }, [props.locale, props.projectsData]);
 
   function ProjectCardBuilder(projectTypeFilter: {
     [id: string]: projectType;
   }): void {
     setProjectsData(
-      output
+      props.projectsData
         .filter(
           e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
         )
         .filter(e => {
           return (
-            (e.category === 0 && projectTypeFilter['Tool'].activated) ||
-            (e.category === 1 && projectTypeFilter['Game'].activated) ||
-            (e.category === 2 && projectTypeFilter['GameTool'].activated)
+            (e.category === Cat.Commercial && projectTypeFilter['Commercial'].activated) ||
+            (e.category === Cat.GameJam && projectTypeFilter['GameJam'].activated) ||
+            (e.category === Cat.Other && projectTypeFilter['Others'].activated) ||
+            (e.category === Cat.GameJamEvents && projectTypeFilter['GameJamEvents'].activated)
           );
         })
         // .filter(project =>
         //   [...filterStack].every(fs => project.genres.includes(fs)),
         // )
-        .toSorted((a, b) => Date.parse(b.date) - Date.parse(a.date))
+        //.toSorted((a, b) => Date.parse(b.date) - Date.parse(a.date))
         .toSorted(
           (a, b) =>
-            projectTypeFilter[a.category].id - projectTypeFilter[b.category].id,
+             b.category - a.category 
+        ).toSorted(
+          (a, b) =>
+            a.dateCasted.getTime() - b.dateCasted.getTime()
         ),
     );
   }
 
   function OpenProjectModal(id: string) {
-    setProjectData(output.find(e => e.title === id));
+    setProjectData(projectsData.find(e => e.id === id));
     setOpenModal(true);
   }
 
@@ -113,6 +119,7 @@ export default function ProjectBrowser(props: {
     <>
       <div className="flex flex-col">
         <_ButtonGroup
+          projectCatTypes={projectCatTypes}
           projectTypeFilter={projectTypeFilter}
           showHiddenProjects={visibleHiddenProject}
           callback={ToggleChanged}

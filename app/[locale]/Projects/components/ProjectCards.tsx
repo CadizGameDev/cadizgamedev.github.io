@@ -1,6 +1,6 @@
 'use client';
 
-import {ProjectData} from '@/src/data/ProjectDataTypes';
+import {ProjectData, ProjectDataCasted} from '@/src/data/ProjectDataTypes';
 import {Card} from 'flowbite-react';
 // eslint-disable-next-line n/no-extraneous-import
 import {motion} from 'framer-motion';
@@ -41,7 +41,7 @@ const item = {
 const commonSize = 'h-96';
 
 export function ProjectCards(props: {
-  projectdata: ProjectData[];
+  projectdata: ProjectDataCasted[];
   callback: (id: string) => void;
 }): ReactNode {
   return (
