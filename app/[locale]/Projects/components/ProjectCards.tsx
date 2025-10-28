@@ -1,6 +1,6 @@
 'use client';
 
-import {ProjectData, ProjectDataCasted} from '@/src/data/ProjectDataTypes';
+import {ProjectDataCasted} from '@/src/data/ProjectDataTypes';
 import {Card} from 'flowbite-react';
 // eslint-disable-next-line n/no-extraneous-import
 import {motion} from 'framer-motion';
@@ -95,7 +95,7 @@ export function ProjectCards(props: {
               </h5>
               <p className="text-xs font-normal "> ({project.date})</p>
               <p className="text-xs text-gray-700 dark:text-gray-400">
-                {project.description}
+                {project.shortDescription}
               </p>
             </div>
           </Card>

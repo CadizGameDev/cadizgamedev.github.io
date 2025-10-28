@@ -13,13 +13,10 @@ export async function getProjects() {
   const project = filenames.map(filename => {
     const filePath = path.join(dataDir, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
-    return (JSON.parse(fileContents) as ProjectData) as ProjectDataCasted;
+    return JSON.parse(fileContents) as ProjectData as ProjectDataCasted;
   });
 
-  project.forEach(
-    e =>
-      e.dateCasted = new Date(e.date)
-  );
+  project.forEach(e => (e.dateCasted = new Date(e.date)));
 
   return project;
 }

@@ -24,7 +24,12 @@ export function NavBar(props: {
     <Navbar fluid rounded>
       <NavbarBrand as={Link} href="/">
         <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          <Image height={100} width={250 / 2} alt="CadizGameDev Logo" src="/img/badge.png" />
+          <Image
+            height={100}
+            width={250 / 2}
+            alt="CadizGameDev Logo"
+            src="/img/badge.png"
+          />
         </span>
       </NavbarBrand>
       <NavbarToggle />

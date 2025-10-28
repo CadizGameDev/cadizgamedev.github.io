@@ -880,14 +880,14 @@ __metadata:
   linkType: hard
 
 "@next/third-parties@npm:^15":
-  version: 15.4.2
-  resolution: "@next/third-parties@npm:15.4.2"
+  version: 15.5.6
+  resolution: "@next/third-parties@npm:15.5.6"
   dependencies:
     third-party-capital: "npm:1.0.20"
   peerDependencies:
     next: ^13.0.0 || ^14.0.0 || ^15.0.0
     react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
-  checksum: 10c0/bd8e62fb6671b52b541378bf0b01536f8930d6be58753d1b99dfc27fd25a32da77c6960fa11ed2a4db17152a2c14f3590cc1ac1ccbc1f9ffd0cf0f00dc805b21
+  checksum: 10c0/219712108e3d0cacfe1162f674d701cd4ee6fcdc288a319c74ad36ef2cd5260dc84ea51fd9061ab1852ed06a849e4bdaa5e55780968d48ea9140ee94825f7e09
   languageName: node
   linkType: hard
 

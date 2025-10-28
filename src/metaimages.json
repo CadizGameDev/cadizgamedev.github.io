@@ -16,8 +16,8 @@
     "storeIcons":
     {
         "itchio":"itchio.svg",
-        "steam":"",
-        "playstore":"",
+        "steam":"steam.svg",
+        "playstore":"playstore.svg",
         "metaStore":""
     }
 }

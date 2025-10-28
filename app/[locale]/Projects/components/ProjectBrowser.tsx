@@ -15,13 +15,20 @@ import {projectTypeEnum} from '@/src/projectTypeEnum';
 let visibleHiddenProject: boolean = false;
 const filterStack: Set<string> = new Set<string>();
 
-const projectCatTypes =
-  [
-    { "enum": projectTypeEnum.Commercial, "idName": "Commercial", "DisplayName": "Commercial" },
-    { "enum": projectTypeEnum.GameJam, "idName": "GameJam", "DisplayName": "GameJam" },
-    { "enum": projectTypeEnum.Others, "idName": "Others", "DisplayName": "Others" },
-    { "enum": projectTypeEnum.GameJamEvents, "idName": "GameJamEvents", "DisplayName": "GameJamEvents" }
-  ]
+const projectCatTypes = [
+  {
+    enum: projectTypeEnum.Commercial,
+    idName: 'Commercial',
+    DisplayName: 'Commercial',
+  },
+  {enum: projectTypeEnum.GameJam, idName: 'GameJam', DisplayName: 'GameJam'},
+  {enum: projectTypeEnum.Others, idName: 'Others', DisplayName: 'Others'},
+  {
+    enum: projectTypeEnum.GameJamEvents,
+    idName: 'GameJamEvents',
+    DisplayName: 'GameJamEvents',
+  },
+];
 
 let projectTypeFilter: {
   [id: string]: projectType;
@@ -44,26 +51,25 @@ let projectTypeFilter: {
   },
 };
 
-let locale = '';
-
 export default function ProjectBrowser(props: {
   locale: string;
   projectsData: Array<ProjectDataCasted>;
 }): ReactNode {
-  const [projectsData, setProjectsData] = useState<Array<ProjectDataCasted>>([]);
+  const [projectsData, setProjectsData] = useState<Array<ProjectDataCasted>>(
+    [],
+  );
   const [projectData, setProjectData] = useState<ProjectDataCasted>();
 
   const [openModalStatus, setOpenModal] = useState(false);
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
   useEffect(() => {
-      locale = props.locale;
-      setProjectsData(
-        props.projectsData
-          .sort(e => e.category)
-          .filter(
-            e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
-          ),
-      );
+    setProjectsData(
+      props.projectsData
+        .sort(e => e.category)
+        .filter(
+          e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
+        ),
+    );
   }, [props.locale, props.projectsData]);
 
   function ProjectCardBuilder(projectTypeFilter: {
@@ -76,23 +82,22 @@ export default function ProjectBrowser(props: {
         )
         .filter(e => {
           return (
-            (e.category === Cat.Commercial && projectTypeFilter['Commercial'].activated) ||
-            (e.category === Cat.GameJam && projectTypeFilter['GameJam'].activated) ||
-            (e.category === Cat.Other && projectTypeFilter['Others'].activated) ||
-            (e.category === Cat.GameJamEvents && projectTypeFilter['GameJamEvents'].activated)
+            (e.category === Cat.Commercial &&
+              projectTypeFilter['Commercial'].activated) ||
+            (e.category === Cat.GameJam &&
+              projectTypeFilter['GameJam'].activated) ||
+            (e.category === Cat.Other &&
+              projectTypeFilter['Others'].activated) ||
+            (e.category === Cat.GameJamEvents &&
+              projectTypeFilter['GameJamEvents'].activated)
           );
         })
         // .filter(project =>
         //   [...filterStack].every(fs => project.genres.includes(fs)),
         // )
         //.toSorted((a, b) => Date.parse(b.date) - Date.parse(a.date))
-        .toSorted(
-          (a, b) =>
-             b.category - a.category 
-        ).toSorted(
-          (a, b) =>
-            a.dateCasted.getTime() - b.dateCasted.getTime()
-        ),
+        .toSorted((a, b) => b.category - a.category)
+        .toSorted((a, b) => a.dateCasted.getTime() - b.dateCasted.getTime()),
     );
   }
 
