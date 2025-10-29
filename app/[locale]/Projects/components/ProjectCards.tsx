@@ -7,6 +7,7 @@ import {motion} from 'framer-motion';
 import {ReactNode} from 'react';
 //import metaImages from '@/src/metaimages.json';
 import Image from 'next/image';
+import {addCommaIfMore} from '@/src/utils/stringUtils';
 
 //const prefix = '/img/stacks/';
 
@@ -93,6 +94,27 @@ export function ProjectCards(props: {
               <h5 className="text-base font-bold tracking-tight text-gray-900 dark:text-white">
                 {project.title}
               </h5>
+              <div className="flex h-15">
+                {project.team
+                  .slice(0, 2)
+                  .map(e => {
+                    return {
+                      name: e.name
+                        .split(' ')
+                        .reduce((x, y, z) =>
+                          z > 1 ? x + ' ' + y[0] : x + ' ' + y,
+                        ),
+                      url: e.url,
+                    };
+                  })
+                  .map((e, index, array) => (
+                    <>
+                      {e.name}
+                      {addCommaIfMore(index, array)}
+                    </>
+                  ))}
+                {project.team.length > 1 ? '...' : ''}
+              </div>
               <p className="text-xs font-normal "> ({project.date})</p>
               <p className="text-xs text-gray-700 dark:text-gray-400">
                 {project.shortDescription}

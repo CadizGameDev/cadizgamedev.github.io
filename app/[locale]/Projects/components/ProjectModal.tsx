@@ -4,6 +4,7 @@ import {YouTubeEmbed} from '@next/third-parties/google';
 import Image from 'next/image';
 import metaImages from '@/src/metaimages.json';
 import '../../../oldcss.css';
+import {addCommaIfMore} from '@/src/utils/stringUtils';
 
 interface imageData {
   stackIcons: {[id: string]: string};
@@ -12,21 +13,19 @@ interface imageData {
 
 const prefix = '/img/stores/';
 
-function NamesAndUrlMapping(x: NameAndUrl, index: number, array: Array<NameAndUrl>)
-{
+function NamesAndUrlMapping(
+  x: NameAndUrl,
+  index: number,
+  array: Array<NameAndUrl>,
+) {
   //this is bad
   return (
-    <div key={x.name} className="flex">
-      <a href={x.url}>{x.name}</a>
-      {array.length > 1 && index !== array.length - 1 ? (
-        <div className="mr-1">,</div>
-      ) : (
-        <></>
-      )}
-    </div>
+    <a key={x.name} className="text-wrap" href={x.url}>
+      {x.name}
+      {addCommaIfMore(index, array)}
+    </a>
   );
 }
-
 
 export default function ProjectModal(props: {
   openModalStatus: boolean;
@@ -62,19 +61,20 @@ export default function ProjectModal(props: {
                 <div className="flex">
                   {props.projectData?.team.map(NamesAndUrlMapping)}
                 </div>
-                
               </div>
               <div className="flex">
-              {props.projectData.publishers !== undefined ?
-                <>
-                <p className="mr-1">Publishers: </p>
-                <div className="flex">
-                  {props.projectData?.publishers.map(NamesAndUrlMapping)}
-                </div>
-                  </> :
+                {props.projectData.publishers !== undefined &&
+                props.projectData.publishers.length > 0 ? (
+                  <>
+                    <p className="mr-1">Publishers: </p>
+                    <div className="flex">
+                      {props.projectData?.publishers.map(NamesAndUrlMapping)}
+                    </div>
+                  </>
+                ) : (
                   <></>
-              }
-              </div>              
+                )}
+              </div>
               <p>Date: {props.projectData?.date}</p>
               <div>
                 <p>Description:</p>
@@ -83,7 +83,7 @@ export default function ProjectModal(props: {
             </div>
             <div className="flex justify-center items-center">
               {props.projectData?.stores.map(e => (
-                <a key={e.name} className='p-5' href={e.url}>
+                <a key={e.name} className="p-5" href={e.url}>
                   {e.name && s && s[e.name] ? (
                     <Image
                       src={prefix + s[e.name]}
@@ -97,7 +97,7 @@ export default function ProjectModal(props: {
                 </a>
               ))}
             </div>
-            <div className="pt-32">
+            <div className="pt-1">
               {props.projectData?.screenshots &&
               props.projectData?.screenshots.length !== 0 ? (
                 <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">

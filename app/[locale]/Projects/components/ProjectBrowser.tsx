@@ -65,7 +65,7 @@ export default function ProjectBrowser(props: {
   useEffect(() => {
     setProjectsData(
       props.projectsData
-        .sort(e => e.category)
+        .toSorted((a, b) => b.category - a.category)
         .filter(
           e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
         ),

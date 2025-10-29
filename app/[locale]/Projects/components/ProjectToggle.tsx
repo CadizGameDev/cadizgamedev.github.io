@@ -68,8 +68,8 @@ export function _ButtonGroup(props: {
 
   return (
     <>
-      <div className="inline relative top-4 place-self-center">
-        <ButtonGroup outline>
+      <div className="self-center flex flex-col md:flex-row relative top-4 place-self-center">
+        <ButtonGroup className="overflow-x-scroll w-5/6 md:w-full" outline>
           {props.projectCatTypes.map(e => (
             <Button
               key={e.DisplayName + 'Button'}
@@ -91,7 +91,6 @@ export function _ButtonGroup(props: {
               {e.DisplayName}
             </Button>
           ))}
-          ;
         </ButtonGroup>
         <ButtonGroup className="pl-5">
           <Button
