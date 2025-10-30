@@ -83,7 +83,7 @@ export default function ProjectModal(props: {
             </div>
             <div className="flex justify-center items-center">
               {props.projectData?.stores.map(e => (
-                <a key={e.name} className="p-5" href={e.url}>
+                <a key={e.name} className="m-5" href={e.url}>
                   {e.name && s && s[e.name] ? (
                     <Image
                       src={prefix + s[e.name]}

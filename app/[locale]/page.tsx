@@ -1,5 +1,6 @@
 import {hasLocale} from 'next-intl';
 import {getTranslations, setRequestLocale} from 'next-intl/server';
+import Image from 'next/image';
 import {routing} from '@/i18n/routing';
 
 // @ts-expect-error -- TypeScript will validate that only known `params`
@@ -29,5 +30,15 @@ export default async function Home({params}): Promise<ReactNode> {
 
   setRequestLocale(locale);
   //const t = await getTranslations('HomePage');
-  return <main className=" m-5 "></main>;
+  return (
+    <main className="justify-items-center m-5 ">
+      <Image
+        src="/img/badge.png"
+        alt={'Cadiz Game Developers Logo'}
+        height={400}
+        width={400}
+      />
+      <iframe src="/newsletter.html" height="600px" width="600px" />
+    </main>
+  );
 }

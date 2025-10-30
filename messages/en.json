@@ -1,13 +1,10 @@
 {
-  "HomePage": {
-    "Greetings": "Hi!",
-    "Description": "I'm Gabriel Bustillo del Cuvillo, a Jack-of-all-trades IT, But officially I'm a Software Developer (and former IT Technician)"
-  },
+  "HomePage": {},
   "LocaleSwitcher": {
     "locale": "{locale, select, es {Spanish} en {English} other {Unknown}}"
   },
   "Metadata": {
-    "Title": "Gabriel Bustillo del Cuvillo - Jack of the Trades Dev/IT"
+    "Title": "Cadiz Game Developers - CadizGameDev"
   },
   "CommonWords": {
     "years": "Years",
@@ -26,31 +23,25 @@
     "Companies": "Companies",
     "of": "of"
   },
-  "Projects": {
-  },
-  "VRProject": {
-    "Description": "My First Big Project"
-  },
-  "Guestbook": {
-    "Name": "Name/Nickname",
-    "LinkedinLink": "Linkedin Link",
-    "Description": "Message",
-    "Submit": "Send",
-    "update": "Update",
-    "Loading": "Loading"
-  },
-
   "NavBar": {
-    "Projects": "(Game(Tools)) Projects",
-    "Resume": "Resume",
-    "GuestBook": "Guest Book",
-    "AboutMe": "About Me",
+    "Projects": "Made in Cadiz",
+    "AboutMe": "About Us",
     "Contact": "Contact",
-    "Notes": "Notes",
     "Blog": "Blog",
     "Others": "Others"
   },
   "Contact": {
     "Heading": "Hi!, If you want contact us or join it, You have these options:"
+  },
+  "AboutMe": {
+    "Paragraphs": {
+      "Paragraph1": "We are a networking network of Cádiz video game developers. \nFounded in 2023 in San Fernando by Jose Escribano, which was born as a way to bring together people from the province of Cadiz who are dedicated to video game development in any field.",
+      "Paragraph2": "In the development of the coming years we became the Official provincial headquarters of the Global Game Jam sponsored by MalagaJam (As National Headquarters/representative/coordinator).",
+      "Paragraph3": "Currently we usually do two types of activities:",
+      "Paragraph3a": "Meet ups: A way to meet developers in the area, learn about their professional experience, give talks, share opinions, share Feedback or simply chat.",
+      "Paragraph3b": "GameJams: Although it is not usually our main dish, we tend to be Plan B in case there are many people from Cádiz (or nearby) who have not been able to obtain a ticket for MalagaJam.",
+      "Paragraph4": "If so, we have held the Cadiz GameJam I (in-person) hosting the Global Game Jam of 2024 and the Cadiz GameJam II (Now In-Person) in response to the Summer Edition of the same year.",
+      "Paragraph5": "In the end, these activities are done at the request of members and interested parties. Any idea is welcome and will automatically be proposed to a democratic system within the Telegram member group."
+    }
   }
 }

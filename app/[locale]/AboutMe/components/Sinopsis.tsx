@@ -11,9 +11,16 @@ export async function Sinopsis(): Promise<Awaited<ReactNode>> {
         <p>{t('Paragraph1')}</p>
         <p>{t('Paragraph2')}</p>
         <p>{t('Paragraph3')}</p>
+        <ul className="ml-5 list-disc">
+          <li>
+            <p>{t('Paragraph3a')}</p>
+          </li>
+          <li>
+            <p>{t('Paragraph3b')}</p>
+          </li>
+        </ul>
         <p>{t('Paragraph4')}</p>
         <p>{t('Paragraph5')}</p>
-        <p>{t('Paragraph6')}</p>
       </div>
     </>
   );
