@@ -1,0 +1,47 @@
+{
+  "LocaleSwitcher": {
+    "locale": "{locale, select, es {Español} en {Ingles} other {Unknown}}"
+  },
+  "Metadata": {
+    "Title": "Cadiz Game Developers - CadizGameDev"
+  },
+  "CommonWords": {
+    "years": "Años",
+    "Work Experience": "Experiencia Laboral",
+    "WorkExperience": "Experiencia Laboral",
+    "Coding Experience": "Experiencia Programando",
+    "Education": "Educacion",
+    "Certificates": "Certificados",
+    "Talks": "Charlas",
+    "CurrentView": "Su vista actual es la siguiente:",
+    "TechExperience": "Algunas experiencias tecnológicas",
+    "OnGoing": "En curso",
+    "ChangeProfile": "Cambiar perfil técnico",
+    "Companies": "Compañías",
+    "Download": "Descargar Currículum",
+    "JobPositions": "Puestos de trabajo",
+    "of": "de"
+  },
+  "NavBar": {
+    "Projects": "Juegos Hechos en Cádiz",
+    "AboutMe": "Sobre Nosotros",
+    "Contact": "Contacto",
+    "Others": "Otros",
+    "Blog": "Blog"
+  },
+  "Contact": {
+    "Heading": "¡Hola!, Si quieres contactarnos o unirte al grupo, tienes estas opciones:"
+  },
+  "AboutMe": {
+    "Paragraphs": {
+      "Paragraph1": "Somos una red de Networking de desarrolladores de videojuegos           gaditanos. Fundada en 2023 en San Fernando por Jose Antonio Escribano Ayllon que           nacio como una forma reunir a gente de la provincia de Cadiz que se           dedica a desarrollo de videojuegos en cualquier ambito.",
+      "Paragraph2": "En el desarrollo de los años vinientes nos convertimos en sede Oficial           provincial de la Global Game Jam apardinada por la MalagaJam (Como           Sede/representante/coordinadora Nacional).",
+      "Paragraph3": "Actualmente solemos hacer dos tipos de actividades:",
+      "Paragraph4": "De ser asi, Hemos celebrado la Cadiz GameJam I (presencial) Acogiendo           a la Global Game Jam de 2024 y la Cadiz GameJam II (Ahora Presencial)           en respuesta a la Summer Edition del mismo año.",
+      "Paragraph5": "Al final, estas actividades se hacen a peticion de los miembros y de           los interesados, Cualquier idea es bienvenida y se propondrá           automáticamente a un sistema democrático dentro del grupo de miembros           de Telegram.",
+      "Paragraph3a": "Meet ups: Una forma de conocer desarrolladores en la zona, conocer             sus experiencia profesional, dar charlas, compartir opiniones,             compartir Feedback o simplemente charlotear.",
+      "Paragraph3b": "GameJams: Aunque no suele ser nuestro plato principal, Solemos ser             el Plan B en caso de que haya muchos gaditanos (o cercanos) que no             hayan podido obtener una entrada para la MalagaJam.",
+      "1stPosterDescription": "El cartel del primer Meetup CadizGameDev de 2023"
+    }
+  }
+}
