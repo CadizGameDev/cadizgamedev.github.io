@@ -31,7 +31,7 @@ export default async function Home({params}): Promise<ReactNode> {
   setRequestLocale(locale);
   //const t = await getTranslations('HomePage');
   return (
-    <main className="justify-items-center m-5 ">
+    <main className="grid justify-items-center m-5 ">
       <Image
         src="/img/badge.png"
         alt={'Cadiz Game Developers Logo'}
