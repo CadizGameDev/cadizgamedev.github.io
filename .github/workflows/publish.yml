@@ -37,7 +37,7 @@ jobs:
           lfs: true
           submodules: true
       - name: Pull Latest Data
-        run: cd data && git submodule update --remote --merge && cd ..
+        run: git submodule update --remote --merge
       - name: Detect package manager
         id: detect-package-manager
         run: |

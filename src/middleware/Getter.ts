@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import {ProjectData, ProjectDataCasted} from '../data/ProjectDataTypes';
+import {ProjectOrderBy} from '../utils/orderUtils';
 
 export interface projects {
   [id: number]: Array<ProjectData>;
@@ -33,5 +34,5 @@ export async function getProjects() {
     );
   });
 
-  return project;
+  return ProjectOrderBy(project);
 }

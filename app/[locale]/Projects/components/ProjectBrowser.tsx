@@ -9,26 +9,12 @@ import {Types} from './ProjectFilter';
 import {projectType} from '../projectType';
 import {_ButtonGroup} from './ProjectToggle';
 import {Button, Drawer, DrawerHeader, DrawerItems} from 'flowbite-react';
-import {TrademarkNotice} from './TrademarkNotice';
 import {projectTypeEnum} from '@/src/projectTypeEnum';
+import {ProjectOrderBy} from '@/src/utils/orderUtils';
+import {useTranslations} from 'next-intl';
 
 let visibleHiddenProject: boolean = false;
 const filterStack: Set<string> = new Set<string>();
-
-const projectCatTypes = [
-  {
-    enum: projectTypeEnum.Commercial,
-    idName: 'Commercial',
-    DisplayName: 'Commercial',
-  },
-  {enum: projectTypeEnum.GameJam, idName: 'GameJam', DisplayName: 'GameJam'},
-  {enum: projectTypeEnum.Others, idName: 'Others', DisplayName: 'Others'},
-  {
-    enum: projectTypeEnum.GameJamEvents,
-    idName: 'GameJamEvents',
-    DisplayName: 'GameJamEvents',
-  },
-];
 
 let projectTypeFilter: {
   [id: string]: projectType;
@@ -54,7 +40,29 @@ let projectTypeFilter: {
 export default function ProjectBrowser(props: {
   locale: string;
   projectsData: Array<ProjectDataCasted>;
+  children: ReactNode;
 }): ReactNode {
+  const t = useTranslations('Projects.Types');
+
+  const projectCatTypes = [
+    {
+      enum: projectTypeEnum.Commercial,
+      idName: 'Commercial',
+      DisplayName: t('commercial'),
+    },
+    {
+      enum: projectTypeEnum.GameJam,
+      idName: 'GameJam',
+      DisplayName: t('gamejam'),
+    },
+    {enum: projectTypeEnum.Others, idName: 'Others', DisplayName: t('others')},
+    {
+      enum: projectTypeEnum.GameJamEvents,
+      idName: 'GameJamEvents',
+      DisplayName: t('gamejamevents'),
+    },
+  ];
+
   const [projectsData, setProjectsData] = useState<Array<ProjectDataCasted>>(
     [],
   );
@@ -64,11 +72,9 @@ export default function ProjectBrowser(props: {
   const [openFilterSidebar, setOpenFilterSidebar] = useState(false);
   useEffect(() => {
     setProjectsData(
-      props.projectsData
-        .toSorted((a, b) => b.category - a.category)
-        .filter(
-          e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
-        ),
+      props.projectsData.filter(
+        e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
+      ),
     );
   }, [props.locale, props.projectsData]);
 
@@ -76,28 +82,28 @@ export default function ProjectBrowser(props: {
     [id: string]: projectType;
   }): void {
     setProjectsData(
-      props.projectsData
-        .filter(
-          e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
-        )
-        .filter(e => {
-          return (
-            (e.category === Cat.Commercial &&
-              projectTypeFilter['Commercial'].activated) ||
-            (e.category === Cat.GameJam &&
-              projectTypeFilter['GameJam'].activated) ||
-            (e.category === Cat.Other &&
-              projectTypeFilter['Others'].activated) ||
-            (e.category === Cat.GameJamEvents &&
-              projectTypeFilter['GameJamEvents'].activated)
-          );
-        })
+      ProjectOrderBy(
+        props.projectsData
+          .filter(
+            e => !e.inDevelopment || (e.inDevelopment && visibleHiddenProject),
+          )
+          .filter(e => {
+            return (
+              (e.category === Cat.Commercial &&
+                projectTypeFilter['Commercial'].activated) ||
+              (e.category === Cat.GameJam &&
+                projectTypeFilter['GameJam'].activated) ||
+              (e.category === Cat.Other &&
+                projectTypeFilter['Others'].activated) ||
+              (e.category === Cat.GameJamEvents &&
+                projectTypeFilter['GameJamEvents'].activated)
+            );
+          }),
         // .filter(project =>
         //   [...filterStack].every(fs => project.genres.includes(fs)),
         // )
         //.toSorted((a, b) => Date.parse(b.date) - Date.parse(a.date))
-        .toSorted((a, b) => b.category - a.category)
-        .toSorted((a, b) => a.dateCasted.getTime() - b.dateCasted.getTime()),
+      ),
     );
   }
 
@@ -128,6 +134,7 @@ export default function ProjectBrowser(props: {
           projectTypeFilter={projectTypeFilter}
           showHiddenProjects={visibleHiddenProject}
           callback={ToggleChanged}
+          config={{primaryColor: 'blue', showAllLabel: t('showall')}}
         />
         <div className="flex flex-row">
           <Drawer
@@ -170,7 +177,7 @@ export default function ProjectBrowser(props: {
           </Button>
         </div>
       </div>
-      <TrademarkNotice />
+      {props.children}
     </>
   );
 }

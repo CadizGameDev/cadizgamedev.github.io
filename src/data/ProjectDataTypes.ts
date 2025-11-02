@@ -3,6 +3,7 @@ export const enum Cat {
   'GameJam',
   'Other',
   'GameJamEvents',
+  '__End',
 }
 export const enum GameType {
   'Commercial',
