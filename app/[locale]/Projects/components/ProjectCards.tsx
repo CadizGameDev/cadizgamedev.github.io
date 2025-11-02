@@ -106,7 +106,9 @@ export function ProjectCards(props: {
                       name: e.name
                         .split(' ')
                         .reduce((x, y, z) =>
-                          z > 1 ? x + ' ' + y[0] : x + ' ' + y,
+                          z > 1 && project.team.length !== 1
+                            ? x + ' ' + y[0]
+                            : x + ' ' + y,
                         ),
                       url: e.url,
                     };
@@ -119,7 +121,12 @@ export function ProjectCards(props: {
                   ))}
                 {project.team.length > 1 ? '...' : ''}
               </div>
-              <p className="text-xs font-normal "> ({project.date})</p>
+
+              {project.date ? (
+                <p className="text-xs font-normal "> ({project.date})</p>
+              ) : (
+                <></>
+              )}
               <p className="text-xs text-gray-700 dark:text-gray-400">
                 {project.shortDescription}
               </p>

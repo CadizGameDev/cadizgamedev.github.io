@@ -43,5 +43,24 @@
       "Paragraph3b": "GameJams: Aunque no suele ser nuestro plato principal, Solemos ser             el Plan B en caso de que haya muchos gaditanos (o cercanos) que no             hayan podido obtener una entrada para la MalagaJam.",
       "1stPosterDescription": "El cartel del primer Meetup CadizGameDev de 2023"
     }
+  },
+  "Projects": {
+    "date": "Fecha",
+    "description": "Descripción",
+    "publishers": "Editores",
+    "team": "Equipo",
+    "Types": {
+      "commercial": "Comercial",
+      "gamejam": "GameJams",
+      "gamejamevents": "Eventos",
+      "others": "Otros",
+      "showall": "Mostrar todo"
+    }
+  },
+  "projects": {
+    "foot": {
+      "doyouwanttobehere": "¿Quieres aparecer aquí?, Haz un PR...",
+      "here": "¡Aquí!"
+    }
   }
 }

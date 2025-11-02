@@ -44,5 +44,24 @@
       "Paragraph5": "In the end, these activities are done at the request of members and interested parties. Any idea is welcome and will automatically be proposed to a democratic system within the Telegram member group.",
       "1stPosterDescription": "The Poster of the first CadizGameDev Meetup in 2023"
     }
+  },
+  "Projects": {
+    "team": "Team",
+    "publishers": "Publishers",
+    "date": "Date",
+    "description": "Description",
+    "Types": {
+      "gamejam": "GameJams",
+      "gamejamevents": "Events",
+      "commercial": "Commercial",
+      "others": "Others",
+      "showall": "Show All"
+    }
+  },
+  "projects": {
+    "foot": {
+      "doyouwanttobehere": "Do you want to appear here?, Make a PR...",
+      "here": "Here!"
+    }
   }
 }

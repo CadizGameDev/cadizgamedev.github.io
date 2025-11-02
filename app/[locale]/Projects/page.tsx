@@ -4,6 +4,7 @@ import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {pick} from 'lodash';
 import {routing} from '@/i18n/routing';
 import {getProjects} from '@/src/middleware/Getter';
+import {FootNote} from './components/z_FootNote';
 
 // @ts-expect-error -- TypeScript will validate that only known `params`
 // are used in combination with a given `pathname`. Since the two will
@@ -24,7 +25,9 @@ export default async function Project({params}): Awaited<ReactNode> {
         pick(messages, 'Projects')
       }
     >
-      <ProjectBrowser locale={locale} projectsData={await getProjects()} />
+      <ProjectBrowser locale={locale} projectsData={await getProjects()}>
+        <FootNote />
+      </ProjectBrowser>
     </NextIntlClientProvider>
   );
 }
