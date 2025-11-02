@@ -36,8 +36,8 @@ jobs:
         with:
           lfs: true
           submodules: true
-      - name: Pull Latest Data
-        run: git submodule update --remote --merge
+      - name: Fetching Latest Data from CadizGameDevData repo
+        run: git submodule update --recursive --remote
       - name: Detect package manager
         id: detect-package-manager
         run: |
