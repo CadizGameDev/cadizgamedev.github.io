@@ -3,7 +3,6 @@ import {Carousel, Modal, ModalBody, ModalHeader} from 'flowbite-react';
 import {YouTubeEmbed} from '@next/third-parties/google';
 import Image from 'next/image';
 import metaImages from '@/src/metaimages.json';
-import '../../../oldcss.css';
 import {addCommaIfMore} from '@/src/utils/stringUtils';
 
 interface imageData {
@@ -20,7 +19,7 @@ function NamesAndUrlMapping(
 ) {
   //this is bad
   return (
-    <a key={x.name} className="text-wrap" href={x.url}>
+    <a key={x.name} className="text-wrap linkurl" href={x.url}>
       {x.name}
       {addCommaIfMore(index, array)}
     </a>
