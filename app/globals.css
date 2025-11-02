@@ -2,3 +2,16 @@
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 
+.linkurl{
+    text-decoration: underline;
+}
+
+@media (prefers-color-scheme: dark) {
+.background{
+        background-color: black;
+}
+  * {
+
+    color: white;
+  }
+}

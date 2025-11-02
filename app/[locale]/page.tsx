@@ -38,7 +38,9 @@ export default async function Home({params}): Promise<ReactNode> {
         height={400}
         width={400}
       />
-      <iframe src="/newsletter.html" height="600px" width="600px" />
+      <div className="overflow-hidden h-full w-full sm:w-xl sm:h-5/6">
+        <iframe src="/newsletter.html" width="700px" height="700px" />
+      </div>
     </main>
   );
 }

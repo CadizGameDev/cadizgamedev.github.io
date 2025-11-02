@@ -19,7 +19,7 @@ export async function Sinopsis(): Promise<Awaited<ReactNode>> {
           <p>{t('1stPosterDescription')}</p>
         </div>
       </div>
-      <div className="space-y-2">
+      <div className="mt-5 space-y-2">
         <p>{t('Paragraph1')}</p>
         <p>{t('Paragraph2')}</p>
         <p>{t('Paragraph3')}</p>
